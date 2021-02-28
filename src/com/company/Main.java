@@ -1,10 +1,15 @@
 package com.company;
-import java.util.Scanner;
+
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
+
 
 
 public class Main {
+
+
+    private static Object Pawn;
 
     private static void chlist(String[][] board, List<String> blist) {
         for(String str : blist) {
@@ -60,10 +65,22 @@ public class Main {
         System.out.println("Piece to move: ");
         String pieceToMove = in.nextLine();
 
-        char pieceType = (pieceToMove.charAt(0));
+        String pieceType = String.valueOf((Character.toUpperCase(pieceToMove.charAt(0))));
+        
         System.out.println(pieceType);
+
+        if(pieceType.equals("P")) {
+            System.out.println(Pawn);
+        }
+
+
+
+
 
         }
 
+    public static void setPawn(Object pawn) {
+        Pawn = pawn;
     }
+}
 
