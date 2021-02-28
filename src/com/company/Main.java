@@ -5,14 +5,13 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static String pieceToMove;
 
     private static void chlist(String[][] board, List<String> blist) {
-        for(String str : blist) {
+        for (String str : blist) {
             int inumx = (str.charAt(1) - 'a');
-            int inumy = Integer.parseInt(str.substring(2))-1;
+            int inumy = Integer.parseInt(str.substring(2)) - 1;
             board[inumx][inumy] = str;
-            System.out.println(inumx+""+inumy);
+            System.out.println(inumx + "" + inumy);
         }
     }
 
@@ -21,7 +20,7 @@ public class Main {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 board[i][j] = "emp";
-                System.out.print(board[i][j]  + " ");
+                System.out.print(board[i][j] + " ");
             }
             System.out.println();
         }
@@ -38,10 +37,10 @@ public class Main {
         List<String> blist = Arrays.asList(blackInput.split(","));
         System.out.println("You entered for Black " + blist);
 
-        for(String str : wlist) {
+        for (String str : wlist) {
             System.out.println(str.charAt(0));
         }
-        for(String str : blist) {
+        for (String str : blist) {
             System.out.println(str.charAt(0));
         }
 
@@ -57,15 +56,21 @@ public class Main {
         }
 
         System.out.println("Piece to move: ");
-        pieceToMove = in.nextLine();
+        String pieceToMove = in.nextLine();
 
         String pieceType = String.valueOf((Character.toUpperCase(pieceToMove.charAt(0))));
-        
+
         System.out.println(pieceType);
 
-        if(pieceType.equals("P")) {
-            Pawn.pawnMethod();
+        if (pieceType.equals("P")) {
+            System.out.println("True" + pieceToMove);
+            int inumx = (pieceToMove.charAt(1) - 'a');
+            int inumy = Integer.parseInt(pieceToMove.substring(2)) - 1;
+
+            if (board[inumx + 1][inumy].equals("emp") && board[inumx + 2][inumy].equals("emp")) {
+                System.out.println("True Move");
+            }
         }
-        }
+    }
 }
 
