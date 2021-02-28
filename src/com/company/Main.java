@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class Main {
 
 
-    private static Object Pawn;
 
     private static void chlist(String[][] board, List<String> blist) {
         for(String str : blist) {
@@ -70,17 +69,13 @@ public class Main {
         System.out.println(pieceType);
 
         if(pieceType.equals("P")) {
-            System.out.println(Pawn);
+            Pawn.pawnMethod();
         }
 
 
 
-
-
         }
 
-    public static void setPawn(Object pawn) {
-        Pawn = pawn;
-    }
+
 }
 
