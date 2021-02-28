@@ -57,28 +57,13 @@ public class Main {
             System.out.println();
         }
 
-
-
-
-        if(board[1][2].equals("Kb2")){
-            System.out.println("True");
-        }
-        else
-        {
-            System.out.println("False");
-        }
-
-        System.out.println(board[1][2]);
-
-
         System.out.println("Piece to move: ");
         String pieceToMove = in.nextLine();
 
-        if(board[1][2].charAt(0)) == {
+        char pieceType = (pieceToMove.charAt(0));
+        System.out.println(pieceType);
 
         }
 
     }
 
-
-}
