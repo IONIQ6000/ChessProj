@@ -1,14 +1,11 @@
 package com.company;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-
-
 public class Main {
 
-
+    public static String pieceToMove;
 
     private static void chlist(String[][] board, List<String> blist) {
         for(String str : blist) {
@@ -29,7 +26,6 @@ public class Main {
             System.out.println();
         }
 
-
         Scanner in = new Scanner(System.in);
         System.out.println("Enter White: ");
         String whiteInput = in.nextLine();
@@ -41,7 +37,6 @@ public class Main {
         blackInput = blackInput.replaceAll("\\s", "");
         List<String> blist = Arrays.asList(blackInput.split(","));
         System.out.println("You entered for Black " + blist);
-
 
         for(String str : wlist) {
             System.out.println(str.charAt(0));
@@ -62,7 +57,7 @@ public class Main {
         }
 
         System.out.println("Piece to move: ");
-        String pieceToMove = in.nextLine();
+        pieceToMove = in.nextLine();
 
         String pieceType = String.valueOf((Character.toUpperCase(pieceToMove.charAt(0))));
         
@@ -71,11 +66,6 @@ public class Main {
         if(pieceType.equals("P")) {
             Pawn.pawnMethod();
         }
-
-
-
         }
-
-
 }
 

@@ -2,9 +2,10 @@ package com.company;
 
 
 public class Pawn {
-    
+
     public static void pawnMethod() {
-        System.out.println("True");
+        System.out.println("True" + Main.pieceToMove);
+
         
     }
 }
