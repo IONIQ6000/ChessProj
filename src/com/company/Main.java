@@ -6,20 +6,11 @@ import java.util.Scanner;
 public class Main {
 
 
-    private static void chlist(String[][] board, List<String> blist) {
-        for (String str : blist) {
-            int inumx = (str.charAt(1) - 'a');
-            int inumy = Integer.parseInt(str.substring(2)) - 1;
-            board[inumx][inumy] = str;
-            System.out.println(inumx + "" + inumy);
-        }
-    }
-
     public static void main(String[] args) {
         String[][] board = new String[8][8];
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                board[i][j] = "emp";
+                board[i][j] = "emps";
                 System.out.print(board[i][j] + " ");
             }
             System.out.println();
@@ -44,9 +35,26 @@ public class Main {
             System.out.println(str.charAt(0));
         }
 
-        chlist(board, wlist);
-
-        chlist(board, blist);
+        for (String str : wlist) {
+            int inumx = (str.charAt(1) - 'a');
+            int inumy = Integer.parseInt(str.substring(2)) - 1;
+            str = Character.toUpperCase(str.charAt(0)) + str.substring(1);
+            StringBuffer strbuf = new StringBuffer(str);
+            strbuf.insert(1,'W');
+            str = String.valueOf(strbuf);
+            board[inumx][inumy] = str;
+            System.out.println(inumx + "" + inumy);
+        }
+        for (String str : blist) {
+            int inumx = (str.charAt(1) - 'a');
+            int inumy = Integer.parseInt(str.substring(2)) - 1;
+            str = Character.toUpperCase(str.charAt(0)) + str.substring(1);
+            StringBuffer strbuf = new StringBuffer(str);
+            strbuf.insert(1,'B');
+            str = String.valueOf(strbuf);
+            board[inumx][inumy] = str;
+            System.out.println(inumx + "" + inumy);
+        }
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -58,7 +66,7 @@ public class Main {
         System.out.println("Piece to move: ");
         String pieceToMove = in.nextLine();
 
-        String pieceType = String.valueOf((Character.toUpperCase(pieceToMove.charAt(0))));
+        String pieceType = String.valueOf(pieceToMove.charAt(0));
 
         System.out.println(pieceType);
 
@@ -67,8 +75,17 @@ public class Main {
             int inumx = (pieceToMove.charAt(1) - 'a');
             int inumy = Integer.parseInt(pieceToMove.substring(2)) - 1;
 
-            if (board[inumx + 1][inumy].equals("emp") && board[inumx + 2][inumy].equals("emp")) {
+            if (board[inumx + 1][inumy].equals("emps") && board[inumx + 2][inumy].equals("emps")) {
                 System.out.println("True Move");
+            }
+            else
+            {
+
+                String ifPawn = String.valueOf(board[inumx + 1][inumy].charAt(0));
+                String ifPawnType = String.valueOf(board[inumx + 1][inumy].charAt(1));
+                if (ifPawn.equals("P") && ifPawnType.equals("W")){
+                    System.out.println("White Pawn found");
+                }
             }
         }
     }
