@@ -66,10 +66,18 @@ public class Main {
         System.out.println("Piece to move: ");
         String pieceToMove = in.nextLine();
 
+        int pieceToMovex = (pieceToMove.charAt(1) - 'a');
+        int pieceToMovey = Integer.parseInt(pieceToMove.substring(2)) - 1;
+
+        pieceToMove = board[pieceToMovex][pieceToMovey];
+        if(board[pieceToMovex][pieceToMovey].equals("emps")){
+            System.out.println("Empty!");
+        }
+        System.out.println(pieceToMove);
+
         String pieceType = String.valueOf(pieceToMove.charAt(0));
 
         System.out.println(pieceType);
-
         if (pieceType.equals("P")) {
             System.out.println("True" + pieceToMove);
             int inumx = (pieceToMove.charAt(1) - 'a');
@@ -87,7 +95,8 @@ public class Main {
                     System.out.println("White Pawn found");
                 }
             }
+
         }
     }
-}
+
 
