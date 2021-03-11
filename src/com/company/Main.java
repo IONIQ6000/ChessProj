@@ -29,31 +29,22 @@ public class Main {
         System.out.println("You entered for Black " + blist);
 
         for (String str : wlist) {
-            System.out.println(str.charAt(0));
-        }
-        for (String str : blist) {
-            System.out.println(str.charAt(0));
-        }
-
-        for (String str : wlist) {
             int inumx = (str.charAt(1) - 'a');
             int inumy = Integer.parseInt(str.substring(2)) - 1;
             str = Character.toUpperCase(str.charAt(0)) + str.substring(1);
             StringBuffer strbuf = new StringBuffer(str);
-            strbuf.insert(1,'W');
+            strbuf.insert(1, 'W');
             str = String.valueOf(strbuf);
             board[inumx][inumy] = str;
-            System.out.println(inumx + "" + inumy);
         }
         for (String str : blist) {
             int inumx = (str.charAt(1) - 'a');
             int inumy = Integer.parseInt(str.substring(2)) - 1;
             str = Character.toUpperCase(str.charAt(0)) + str.substring(1);
             StringBuffer strbuf = new StringBuffer(str);
-            strbuf.insert(1,'B');
+            strbuf.insert(1, 'B');
             str = String.valueOf(strbuf);
             board[inumx][inumy] = str;
-            System.out.println(inumx + "" + inumy);
         }
 
         for (int i = 0; i < 8; i++) {
@@ -70,33 +61,34 @@ public class Main {
         int pieceToMovey = Integer.parseInt(pieceToMove.substring(2)) - 1;
 
         pieceToMove = board[pieceToMovex][pieceToMovey];
-        if(board[pieceToMovex][pieceToMovey].equals("emps")){
+        if (board[pieceToMovex][pieceToMovey].equals("emps")) {
             System.out.println("Empty!");
         }
         System.out.println(pieceToMove);
 
         String pieceType = String.valueOf(pieceToMove.charAt(0));
 
-        System.out.println(pieceType);
         if (pieceType.equals("P")) {
-            System.out.println("True" + pieceToMove);
-            int inumx = (pieceToMove.charAt(1) - 'a');
-            int inumy = Integer.parseInt(pieceToMove.substring(2)) - 1;
 
-            if (board[inumx + 1][inumy].equals("emps") && board[inumx + 2][inumy].equals("emps")) {
-                System.out.println("True Move");
-            }
-            else
-            {
-
-                String ifPawn = String.valueOf(board[inumx + 1][inumy].charAt(0));
-                String ifPawnType = String.valueOf(board[inumx + 1][inumy].charAt(1));
-                if (ifPawn.equals("P") && ifPawnType.equals("W")){
-                    System.out.println("White Pawn found");
+            for (int row = pieceToMovex + 1; row <= (pieceToMovex + 2); row++) {
+                if (board[row][pieceToMovey].equals("emps")) {
+                    System.out.println("Empty space at " + board[row][pieceToMovey]);
+                } else {
+                    String ifPawn = String.valueOf(board[row][pieceToMovey].charAt(0));
+                    String ifPawnType = String.valueOf(board[row][pieceToMovey].charAt(1));
+                        if (ifPawn.equals("P") && ifPawnType.equals("W")) {
+                            System.out.println("White Pawn found at " + board[row][pieceToMovey]);
+                            }
+                        else if (ifPawn.equals("P") && ifPawnType.equals("B")){
+                            System.out.println("Black Pawn found at " + board[row][pieceToMovey]);
                 }
-            }
+                }
 
+
+            }
         }
     }
+}
+
 
 
