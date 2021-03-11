@@ -8,6 +8,9 @@ import java.util.*;
 
 public class Main {
 
+    private static String getCharForNumber(int i) {
+        return i > 0 && i < 27 ? String.valueOf((char)(i + 97)) : null;
+    }
 
     public static void main(String[] args) {
         String[][] board = new String[8][8];
@@ -117,6 +120,11 @@ public class Main {
                 }
             }
 
+        }
+        String letterax;
+        for (String str : legalmoves) {
+            letterax = getCharForNumber(Integer.parseInt(str.substring(0,1)));
+            System.out.println("Letter at pos 0 : " + letterax);
         }
         System.out.println("Legal moves:  " + legalmoves);
 
