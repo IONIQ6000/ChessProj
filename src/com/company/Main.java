@@ -1,7 +1,10 @@
 package com.company;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.*;
+
 
 public class Main {
 
@@ -61,34 +64,65 @@ public class Main {
         int pieceToMovey = Integer.parseInt(pieceToMove.substring(2)) - 1;
 
         pieceToMove = board[pieceToMovex][pieceToMovey];
-        if (board[pieceToMovex][pieceToMovey].equals("emps")) {
+
+        while (board[pieceToMovex][pieceToMovey].equals("emps")) {
             System.out.println("Empty!");
+            System.out.println("Piece to move: ");
+            pieceToMove = in.nextLine();
+            pieceToMovex = (pieceToMove.charAt(1) - 'a');
+            pieceToMovey = Integer.parseInt(pieceToMove.substring(2)) - 1;
+            pieceToMove = board[pieceToMovex][pieceToMovey];
+
         }
         System.out.println(pieceToMove);
 
+
         String pieceType = String.valueOf(pieceToMove.charAt(0));
 
-        if (pieceType.equals("P")) {
+        List<String>legalmoves = new ArrayList<>();
 
-            for (int row = pieceToMovex + 1; row <= (pieceToMovex + 2); row++) {
-                if (board[row][pieceToMovey].equals("emps")) {
-                    System.out.println("Empty space at " + board[row][pieceToMovey]);
-                } else {
+        if (pieceType.equals("P")) {
+            String pieceColor = String.valueOf(board[pieceToMovex][pieceToMovey].charAt(1));
+            if (pieceColor.equals("W")) {
+                for (int row = pieceToMovex + 1; row <= (pieceToMovex + 2); row++) {
+                    if (board[row][pieceToMovey].equals("emps")) {
+                        legalmoves.add(row + "" + pieceToMovey);
+                    }
                     String ifPawn = String.valueOf(board[row][pieceToMovey].charAt(0));
                     String ifPawnType = String.valueOf(board[row][pieceToMovey].charAt(1));
+                    if (ifPawn.equals("P") && ifPawnType.equals("W")) {
+                        System.out.println("White Pawn found at " + board[row][pieceToMovey]);
+                        } else if (ifPawn.equals("P") && ifPawnType.equals("B")) {
+                            System.out.println("Black Pawn found at " + board[row][pieceToMovey]);
+                        }
+
+
+
+                }
+            } else if (pieceColor.equals("B")) {
+                for (int row = pieceToMovex - 1; row >= (pieceToMovex - 2); row--) {
+                    if (board[row][pieceToMovey].equals("emps")) {
+                        System.out.println("Empty space at " + board[row][pieceToMovey]);
+                    } else {
+                        String ifPawn = String.valueOf(board[row][pieceToMovey].charAt(0));
+                        String ifPawnType = String.valueOf(board[row][pieceToMovey].charAt(1));
                         if (ifPawn.equals("P") && ifPawnType.equals("W")) {
                             System.out.println("White Pawn found at " + board[row][pieceToMovey]);
-                            }
-                        else if (ifPawn.equals("P") && ifPawnType.equals("B")){
+                        } else if (ifPawn.equals("P") && ifPawnType.equals("B")) {
                             System.out.println("Black Pawn found at " + board[row][pieceToMovey]);
-                }
-                }
+                        }
+                    }
 
 
+                }
             }
+
         }
+        System.out.println("Legal moves:  " + legalmoves);
+
     }
-}
+    }
+
 
 
 
