@@ -1,6 +1,5 @@
 package com.company;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.*;
@@ -9,7 +8,7 @@ import java.util.*;
 public class Main {
 
     private static String getCharForNumber(int i) {
-        return i > 0 && i < 27 ? String.valueOf((char)(i + 97)) : null;
+        return i >= 0 && i < 27 ? String.valueOf((char)(i + 97)) : null;
     }
 
     public static void main(String[] args) {
@@ -28,12 +27,6 @@ public class Main {
         whiteInput = whiteInput.replaceAll("\\s", "");
         List<String> wlist = Arrays.asList(whiteInput.split(","));
         System.out.println("You entered for White " + wlist);
-        System.out.println("Enter Black: ");
-        String blackInput = in.nextLine();
-        blackInput = blackInput.replaceAll("\\s", "");
-        List<String> blist = Arrays.asList(blackInput.split(","));
-        System.out.println("You entered for Black " + blist);
-
         for (String str : wlist) {
             int inumx = (str.charAt(1) - 'a');
             int inumy = Integer.parseInt(str.substring(2)) - 1;
@@ -43,6 +36,19 @@ public class Main {
             str = String.valueOf(strbuf);
             board[inumx][inumy] = str;
         }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("Enter Black: ");
+        String blackInput = in.nextLine();
+        blackInput = blackInput.replaceAll("\\s", "");
+        List<String> blist = Arrays.asList(blackInput.split(","));
+        System.out.println("You entered for Black " + blist);
+
+
         for (String str : blist) {
             int inumx = (str.charAt(1) - 'a');
             int inumy = Integer.parseInt(str.substring(2)) - 1;
@@ -85,40 +91,11 @@ public class Main {
         List<String>legalmoves = new ArrayList<>();
 
         if (pieceType.equals("P")) {
-            String pieceColor = String.valueOf(board[pieceToMovex][pieceToMovey].charAt(1));
-            if (pieceColor.equals("W")) {
-                for (int row = pieceToMovex + 1; row <= (pieceToMovex + 2); row++) {
-                    if (board[row][pieceToMovey].equals("emps")) {
-                        legalmoves.add(row + "" + pieceToMovey);
-                    }
-                    String ifPawn = String.valueOf(board[row][pieceToMovey].charAt(0));
-                    String ifPawnType = String.valueOf(board[row][pieceToMovey].charAt(1));
-                    if (ifPawn.equals("P") && ifPawnType.equals("W")) {
-                        System.out.println("White Pawn found at " + board[row][pieceToMovey]);
-                        } else if (ifPawn.equals("P") && ifPawnType.equals("B")) {
-                            System.out.println("Black Pawn found at " + board[row][pieceToMovey]);
-                        }
+            new Pawn(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
 
-
-
-                }
-            } else if (pieceColor.equals("B")) {
-                for (int row = pieceToMovex - 1; row >= (pieceToMovex - 2); row--) {
-                    if (board[row][pieceToMovey].equals("emps")) {
-                        System.out.println("Empty space at " + board[row][pieceToMovey]);
-                    } else {
-                        String ifPawn = String.valueOf(board[row][pieceToMovey].charAt(0));
-                        String ifPawnType = String.valueOf(board[row][pieceToMovey].charAt(1));
-                        if (ifPawn.equals("P") && ifPawnType.equals("W")) {
-                            System.out.println("White Pawn found at " + board[row][pieceToMovey]);
-                        } else if (ifPawn.equals("P") && ifPawnType.equals("B")) {
-                            System.out.println("Black Pawn found at " + board[row][pieceToMovey]);
-                        }
-                    }
-
-
-                }
-            }
+        }
+        if (pieceType.equals("R")) {
+            new Rook(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
 
         }
         List<String>legalprint = new ArrayList<>();
@@ -130,7 +107,9 @@ public class Main {
         System.out.println("Legal moves:  " + legalprint);
 
     }
-    }
+
+
+}
 
 
 
