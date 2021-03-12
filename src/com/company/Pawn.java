@@ -24,23 +24,23 @@ class Pawn {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
                 //String ifPawn = String.valueOf(board[row][pieceToMovey].charAt(0));
-                String ifPawnType = String.valueOf(board[row][pieceToMovey].charAt(1));
-                if (ifPawnType.equals("B")) {
+                String occupyColor = String.valueOf(board[row][pieceToMovey].charAt(1));
+                if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
             }
                 for (int row = pieceToMovex + 1; row <= (pieceToMovex + 1); row++) {
                     for (int col = pieceToMovey + 1; col <= (pieceToMovey + 1); col++) {
-                        String ifPawnType = String.valueOf(board[row][col].charAt(1));
-                        if (ifPawnType.equals("B")) {
+                        String occupyColor = String.valueOf(board[row][col].charAt(1));
+                        if (occupyColor.equals("B")) {
                             legalmoves.add(row + "" + col);
                         }
                     }
                 }
                 for (int row = pieceToMovex + 1; row <= (pieceToMovex + 1); row++) {
                     for (int col = pieceToMovey - 1; col <= (pieceToMovey - 1); col++) {
-                        String ifPawnType = String.valueOf(board[row][col].charAt(1));
-                        if (ifPawnType.equals("B")) {
+                        String occupyColor = String.valueOf(board[row][col].charAt(1));
+                        if (occupyColor.equals("B")) {
                             legalmoves.add(row + "" + col);
                         }
                     }
@@ -52,23 +52,23 @@ class Pawn {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
                 //String ifPawn = String.valueOf(board[row][pieceToMovey].charAt(0));
-                String ifPawnType = String.valueOf(board[row][pieceToMovey].charAt(1));
-                if (ifPawnType.equals("W")) {
+                String occupyColor = String.valueOf(board[row][pieceToMovey].charAt(1));
+                if (occupyColor.equals("W")) {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
             }
             for (int row = pieceToMovex - 1; row <= (pieceToMovex - 1); row++) {
                 for (int col = pieceToMovey - 1; col <= (pieceToMovey - 1); col++) {
-                    String ifPawnType = String.valueOf(board[row][col].charAt(1));
-                    if (ifPawnType.equals("W")) {
+                    String occupyColor = String.valueOf(board[row][col].charAt(1));
+                    if (occupyColor.equals("W")) {
                         legalmoves.add(row + "" + col);
                     }
                 }
             }
             for (int row = pieceToMovex - 1; row <= (pieceToMovex - 1); row++) {
                 for (int col = pieceToMovey + 1; col <= (pieceToMovey + 1); col++) {
-                    String ifPawnType = String.valueOf(board[row][col].charAt(1));
-                    if (ifPawnType.equals("W")) {
+                    String occupyColor = String.valueOf(board[row][col].charAt(1));
+                    if (occupyColor.equals("W")) {
                         legalmoves.add(row + "" + col);
                     }
                 }

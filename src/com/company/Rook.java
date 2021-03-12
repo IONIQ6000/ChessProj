@@ -22,18 +22,18 @@ class Rook {
             if (col > 7) {
                 System.out.println("Out of Bounds - going right");
                 break; }
-            String ifPawnType = String.valueOf(board[pieceToMovex][col].charAt(1));
+            String occupyColor = String.valueOf(board[pieceToMovex][col].charAt(1));
             if (board[pieceToMovex][col].equals("emps")) {
                 legalmoves.add(pieceToMovex + "" + col);
             } else
                 if (pieceColor.equals("W")) {
-                    if (ifPawnType.equals("B")) {
+                    if (occupyColor.equals("B")) {
                         legalmoves.add(pieceToMovex + "" + col);
                 }
                 break;
             } else
                 if (pieceColor.equals("B")) {
-                    if (ifPawnType.equals("W")) {
+                    if (occupyColor.equals("W")) {
                         legalmoves.add(pieceToMovex + "" + col);
                 }
                 break;
@@ -44,18 +44,18 @@ class Rook {
             if (col < 0) {
                 System.out.println("Out of Bounds - going left");
                 break; }
-            String ifPawnType = String.valueOf(board[pieceToMovex][col].charAt(1));
+            String occupyColor = String.valueOf(board[pieceToMovex][col].charAt(1));
             if (board[pieceToMovex][col].equals("emps")) {
                 legalmoves.add(pieceToMovex + "" + col);
             } else
             if (pieceColor.equals("W")) {
-                if (ifPawnType.equals("B")) {
+                if (occupyColor.equals("B")) {
                     legalmoves.add(pieceToMovex + "" + col);
                 }
                 break;
             } else
             if (pieceColor.equals("B")) {
-                if (ifPawnType.equals("W")) {
+                if (occupyColor.equals("W")) {
                     legalmoves.add(pieceToMovex + "" + col);
                 }
                 break;
@@ -66,18 +66,18 @@ class Rook {
             if (row < 0) {
                 System.out.println("Out of Bounds - over the top");
                 break; }
-            String ifPawnType = String.valueOf(board[row][pieceToMovey].charAt(1));
+            String occupyColor = String.valueOf(board[row][pieceToMovey].charAt(1));
             if (board[row][pieceToMovey].equals("emps")) {
                 legalmoves.add(row + "" + pieceToMovey);
             } else
             if (pieceColor.equals("W")) {
-                if (ifPawnType.equals("B")) {
+                if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
                 break;
             } else
             if (pieceColor.equals("B")) {
-                if (ifPawnType.equals("W")) {
+                if (occupyColor.equals("W")) {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
                 break;
@@ -88,18 +88,18 @@ class Rook {
             if (row > 7) {
                 System.out.println("Out of Bounds - out the bottom");
                 break; }
-            String ifPawnType = String.valueOf(board[row][pieceToMovey].charAt(1));
+            String occupyColor = String.valueOf(board[row][pieceToMovey].charAt(1));
             if (board[row][pieceToMovey].equals("emps")) {
                 legalmoves.add(row + "" + pieceToMovey);
             } else
             if (pieceColor.equals("W")) {
-                if (ifPawnType.equals("B")) {
+                if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
                 break;
             } else
             if (pieceColor.equals("B")) {
-                if (ifPawnType.equals("W")) {
+                if (occupyColor.equals("W")) {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
                 break;

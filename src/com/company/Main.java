@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.*;
 
-
 public class Main {
 
     private static String getCharForNumber(int i) {
@@ -85,19 +84,20 @@ public class Main {
         }
         System.out.println(pieceToMove);
 
-
         String pieceType = String.valueOf(pieceToMove.charAt(0));
 
         List<String>legalmoves = new ArrayList<>();
 
         if (pieceType.equals("P")) {
             new Pawn(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
-
         }
         if (pieceType.equals("R")) {
             new Rook(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
-
         }
+        if (pieceType.equals("B")) {
+            new Bishop(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
+        }
+
         List<String>legalprint = new ArrayList<>();
         for (String str : legalmoves) {
             String letterax = getCharForNumber(Integer.parseInt(str.substring(0, 1)));
@@ -105,10 +105,7 @@ public class Main {
             legalprint.add(letterax+""+numax);
         }
         System.out.println("Legal moves:  " + legalprint);
-
     }
-
-
 }
 
 
