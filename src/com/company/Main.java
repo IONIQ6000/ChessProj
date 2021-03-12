@@ -121,12 +121,13 @@ public class Main {
             }
 
         }
-        String letterax;
+        List<String>legalprint = new ArrayList<>();
         for (String str : legalmoves) {
-            letterax = getCharForNumber(Integer.parseInt(str.substring(0,1)));
-            System.out.println("Letter at pos 0 : " + letterax);
+            String letterax = getCharForNumber(Integer.parseInt(str.substring(0, 1)));
+            String numax = String.valueOf((Integer.parseInt(str.substring(1)))+1);
+            legalprint.add(letterax+""+numax);
         }
-        System.out.println("Legal moves:  " + legalmoves);
+        System.out.println("Legal moves:  " + legalprint);
 
     }
     }
