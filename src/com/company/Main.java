@@ -101,6 +101,9 @@ public class Main {
         if (pieceType.equals("Q")) {
             new Queen(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
         }
+        if (pieceType.equals("K")) {
+            new Knight(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
+        }
 
         List<String> legalprint = new ArrayList<>();
         for (String str : legalmoves) {
@@ -109,6 +112,12 @@ public class Main {
             legalprint.add(letterax + "" + numax);
         }
         System.out.println("Legal moves:  " + legalprint);
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
 
