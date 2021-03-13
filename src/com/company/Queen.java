@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.List;
 
-public class Queen {
+class Queen {
     private final String[][] board;
     private final int pieceToMovex;
     private final int pieceToMovey;
