@@ -101,8 +101,11 @@ public class Main {
         if (pieceType.equals("Q")) {
             new Queen(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
         }
-        if (pieceType.equals("K")) {
+        if (pieceType.equals("N")) {
             new Knight(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
+        }
+        if (pieceType.equals("K")) {
+            new kingBoardGenerator(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
         }
 
         List<String> legalprint = new ArrayList<>();
