@@ -35,7 +35,7 @@ class Pawn {
             }
             for (int row = pieceToMovex + 1; row <= (pieceToMovex + 1); row++) {
                 for (int col = pieceToMovey + 1; col <= (pieceToMovey + 1); col++) {
-                    if (row > 7 && col > 7) {
+                    if (row > 7 || col > 7) {
                         break;
                     } else {
                     String occupyColor = String.valueOf(board[row][col].charAt(1));
@@ -47,7 +47,7 @@ class Pawn {
             }
             for (int row = pieceToMovex + 1; row <= (pieceToMovex + 1); row++) {
                 for (int col = pieceToMovey - 1; col <= (pieceToMovey - 1); col++) {
-                    if (row > 7 && col < 0){
+                    if (row > 7 || col < 0){
                         break;
                     } else {
                     String occupyColor = String.valueOf(board[row][col].charAt(1));
@@ -74,7 +74,7 @@ class Pawn {
             }
             for (int row = pieceToMovex - 1; row <= (pieceToMovex - 1); row++) {
                 for (int col = pieceToMovey - 1; col <= (pieceToMovey - 1); col++) {
-                    if (row < 0 && col < 0) {
+                    if (row < 0 || col < 0) {
                         break;
                     } else {
                     String occupyColor = String.valueOf(board[row][col].charAt(1));
@@ -86,7 +86,7 @@ class Pawn {
             }
             for (int row = pieceToMovex - 1; row <= (pieceToMovex - 1); row++) {
                 for (int col = pieceToMovey + 1; col <= (pieceToMovey + 1); col++) {
-                    if (row < 0 && col > 7) {
+                    if (row < 0 || col > 7) {
                         break;
                     } else {
                     String occupyColor = String.valueOf(board[row][col].charAt(1));

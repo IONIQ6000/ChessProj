@@ -105,7 +105,7 @@ public class Main {
             new Knight(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
         }
         if (pieceType.equals("K")) {
-            new kingBoardGenerator(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
+            new kingBoardGenerator(board, pieceToMovex, pieceToMovey).invoke();
         }
 
         List<String> legalprint = new ArrayList<>();
