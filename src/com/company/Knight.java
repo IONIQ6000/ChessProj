@@ -28,7 +28,6 @@ class Knight {
             occupyColor = String.valueOf(board[row][col].charAt(1));
             if (board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KKKK";
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -44,12 +43,11 @@ class Knight {
         col = pieceToMovey + 2;
         if (row > 7 || col > 7) {
             System.out.println("Out of Bounds - going down 2 then 1 right");
-
         } else {
             occupyColor = String.valueOf(board[row][col].charAt(1));
             if (board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KKKK";
+
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -65,12 +63,11 @@ class Knight {
         col = pieceToMovey + 2;
         if (row < 0 || col > 7) {
             System.out.println("Out of Bounds - going left 1 then down 2");
-
         } else {
             occupyColor = String.valueOf(board[row][col].charAt(1));
             if (board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KKKK";
+
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -86,12 +83,11 @@ class Knight {
         col = pieceToMovey + 1;
         if (row < 0 || col > 7) {
             System.out.println("Out of Bounds - going left 2 then down 1");
-
         } else {
             occupyColor = String.valueOf(board[row][col].charAt(1));
             if (board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KKKK";
+
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -107,12 +103,11 @@ class Knight {
         col = pieceToMovey - 1;
         if (row > 8 || col < 0) {
             System.out.println("Out of Bounds - going down 2 then left 1");
-
         } else {
             occupyColor = String.valueOf(board[row][col].charAt(1));
             if (board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KKKK";
+
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -128,12 +123,11 @@ class Knight {
         col = pieceToMovey - 2;
         if (row > 8 || col < 0) {
             System.out.println("Out of Bounds - going down 2 then left 1");
-
         } else {
             occupyColor = String.valueOf(board[row][col].charAt(1));
             if (board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KKKK";
+
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -149,12 +143,11 @@ class Knight {
         col = pieceToMovey - 2;
         if (row < 0 || col < 0) {
             System.out.println("Out of Bounds - going up 1 then left 2");
-
         } else {
             occupyColor = String.valueOf(board[row][col].charAt(1));
             if (board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KKKK";
+
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -170,12 +163,11 @@ class Knight {
         col = pieceToMovey - 1;
         if (row < 0 || col < 0) {
             System.out.println("Out of Bounds - going up 2 then left 1");
-
         } else {
             occupyColor = String.valueOf(board[row][col].charAt(1));
             if (board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KKKK";
+
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
