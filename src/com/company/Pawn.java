@@ -29,24 +29,23 @@ class Pawn {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
             }
-                for (int row = pieceToMovex + 1; row <= (pieceToMovex + 1); row++) {
-                    for (int col = pieceToMovey + 1; col <= (pieceToMovey + 1); col++) {
-                        String occupyColor = String.valueOf(board[row][col].charAt(1));
-                        if (occupyColor.equals("B")) {
-                            legalmoves.add(row + "" + col);
-                        }
+            for (int row = pieceToMovex + 1; row <= (pieceToMovex + 1); row++) {
+                for (int col = pieceToMovey + 1; col <= (pieceToMovey + 1); col++) {
+                    String occupyColor = String.valueOf(board[row][col].charAt(1));
+                    if (occupyColor.equals("B")) {
+                        legalmoves.add(row + "" + col);
                     }
                 }
-                for (int row = pieceToMovex + 1; row <= (pieceToMovex + 1); row++) {
-                    for (int col = pieceToMovey - 1; col <= (pieceToMovey - 1); col++) {
-                        String occupyColor = String.valueOf(board[row][col].charAt(1));
-                        if (occupyColor.equals("B")) {
-                            legalmoves.add(row + "" + col);
-                        }
+            }
+            for (int row = pieceToMovex + 1; row <= (pieceToMovex + 1); row++) {
+                for (int col = pieceToMovey - 1; col <= (pieceToMovey - 1); col++) {
+                    String occupyColor = String.valueOf(board[row][col].charAt(1));
+                    if (occupyColor.equals("B")) {
+                        legalmoves.add(row + "" + col);
                     }
                 }
-        }
-            else if (pieceColor.equals("B")) {
+            }
+        } else if (pieceColor.equals("B")) {
             for (int row = pieceToMovex - 1; row <= (pieceToMovex - 1); row++) {
                 if (board[row][pieceToMovey].equals("emps")) {
                     legalmoves.add(row + "" + pieceToMovey);

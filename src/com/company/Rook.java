@@ -21,20 +21,19 @@ class Rook {
         for (int col = pieceToMovey + 1; col <= pieceToMovey + 7; col++) {
             if (col > 7) {
                 System.out.println("Out of Bounds - going right");
-                break; }
+                break;
+            }
             String occupyColor = String.valueOf(board[pieceToMovex][col].charAt(1));
             if (board[pieceToMovex][col].equals("emps")) {
                 legalmoves.add(pieceToMovex + "" + col);
-            } else
-                if (pieceColor.equals("W")) {
-                    if (occupyColor.equals("B")) {
-                        legalmoves.add(pieceToMovex + "" + col);
+            } else if (pieceColor.equals("W")) {
+                if (occupyColor.equals("B")) {
+                    legalmoves.add(pieceToMovex + "" + col);
                 }
                 break;
-            } else
-                if (pieceColor.equals("B")) {
-                    if (occupyColor.equals("W")) {
-                        legalmoves.add(pieceToMovex + "" + col);
+            } else if (pieceColor.equals("B")) {
+                if (occupyColor.equals("W")) {
+                    legalmoves.add(pieceToMovex + "" + col);
                 }
                 break;
             }
@@ -43,18 +42,17 @@ class Rook {
         for (int col = pieceToMovey - 1; col >= pieceToMovey - 7; col--) {
             if (col < 0) {
                 System.out.println("Out of Bounds - going left");
-                break; }
+                break;
+            }
             String occupyColor = String.valueOf(board[pieceToMovex][col].charAt(1));
             if (board[pieceToMovex][col].equals("emps")) {
                 legalmoves.add(pieceToMovex + "" + col);
-            } else
-            if (pieceColor.equals("W")) {
+            } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(pieceToMovex + "" + col);
                 }
                 break;
-            } else
-            if (pieceColor.equals("B")) {
+            } else if (pieceColor.equals("B")) {
                 if (occupyColor.equals("W")) {
                     legalmoves.add(pieceToMovex + "" + col);
                 }
@@ -65,18 +63,17 @@ class Rook {
         for (int row = pieceToMovex - 1; row >= pieceToMovex - 7; row--) {
             if (row < 0) {
                 System.out.println("Out of Bounds - over the top");
-                break; }
+                break;
+            }
             String occupyColor = String.valueOf(board[row][pieceToMovey].charAt(1));
             if (board[row][pieceToMovey].equals("emps")) {
                 legalmoves.add(row + "" + pieceToMovey);
-            } else
-            if (pieceColor.equals("W")) {
+            } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
                 break;
-            } else
-            if (pieceColor.equals("B")) {
+            } else if (pieceColor.equals("B")) {
                 if (occupyColor.equals("W")) {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
@@ -87,18 +84,17 @@ class Rook {
         for (int row = pieceToMovex + 1; row <= pieceToMovex + 7; row++) {
             if (row > 7) {
                 System.out.println("Out of Bounds - out the bottom");
-                break; }
+                break;
+            }
             String occupyColor = String.valueOf(board[row][pieceToMovey].charAt(1));
             if (board[row][pieceToMovey].equals("emps")) {
                 legalmoves.add(row + "" + pieceToMovey);
-            } else
-            if (pieceColor.equals("W")) {
+            } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + pieceToMovey);
                 }
                 break;
-            } else
-            if (pieceColor.equals("B")) {
+            } else if (pieceColor.equals("B")) {
                 if (occupyColor.equals("W")) {
                     legalmoves.add(row + "" + pieceToMovey);
                 }

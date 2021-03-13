@@ -1,4 +1,5 @@
 package com.company;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -7,7 +8,7 @@ import java.util.*;
 public class Main {
 
     private static String getCharForNumber(int i) {
-        return i >= 0 && i < 27 ? String.valueOf((char)(i + 97)) : null;
+        return i >= 0 && i < 27 ? String.valueOf((char) (i + 97)) : null;
     }
 
     public static void main(String[] args) {
@@ -86,7 +87,7 @@ public class Main {
 
         String pieceType = String.valueOf(pieceToMove.charAt(0));
 
-        List<String>legalmoves = new ArrayList<>();
+        List<String> legalmoves = new ArrayList<>();
 
         if (pieceType.equals("P")) {
             new Pawn(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
@@ -97,12 +98,15 @@ public class Main {
         if (pieceType.equals("B")) {
             new Bishop(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
         }
+        if (pieceType.equals("Q")) {
+            new Queen(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
+        }
 
-        List<String>legalprint = new ArrayList<>();
+        List<String> legalprint = new ArrayList<>();
         for (String str : legalmoves) {
             String letterax = getCharForNumber(Integer.parseInt(str.substring(0, 1)));
-            String numax = String.valueOf((Integer.parseInt(str.substring(1)))+1);
-            legalprint.add(letterax+""+numax);
+            String numax = String.valueOf((Integer.parseInt(str.substring(1))) + 1);
+            legalprint.add(letterax + "" + numax);
         }
         System.out.println("Legal moves:  " + legalprint);
     }
