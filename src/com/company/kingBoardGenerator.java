@@ -1,7 +1,7 @@
 package com.company;
 
 public class kingBoardGenerator {
-    private String[][] board;
+    private final String[][] board;
     private final int pieceToMovex;
     private final int pieceToMovey;
 
@@ -450,7 +450,7 @@ public class kingBoardGenerator {
                     }
                 }
                 if (occupyType.equals("Q") && (occupyColor.equals("B"))) {
-                    System.out.println("White Queen found at " + board[scanX][scanY]);
+                    System.out.println("Black Queen found at " + board[scanX][scanY]);
                     //look to the right
                     for (int col = scanY + 1; col <= scanY + 7; col++) {
                         if (col > 7) {
@@ -561,6 +561,172 @@ public class kingBoardGenerator {
                             if (!board[row][col].equals("Bchk")) {
                                 break;
                             }
+                        }
+                    }
+                }
+                if (occupyType.equals("N") && (occupyColor.equals("W"))) {
+                    System.out.println("White Knight found at " + board[scanX][scanY]);
+                    //2 right then down 1
+                    int row = pieceToMovex + 2;
+                    int col = pieceToMovey + 1;
+                    if (row > 7 || col > 7) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
+                        }
+                    }
+                    //down 2 then 1 right
+                    row = pieceToMovex + 1;
+                    col = pieceToMovey + 2;
+                    if (row > 7 || col > 7) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
+                        }
+                    }
+                    //up 1 then right 2
+                    row = pieceToMovex - 1;
+                    col = pieceToMovey + 2;
+                    if (row < 0 || col > 7) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
+                        }
+                    }
+                    //up 2 then right 1
+                    row = pieceToMovex - 2;
+                    col = pieceToMovey + 1;
+                    if (row < 0 || col > 7) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
+                        }
+                    }
+                    //down 2 then left 1
+                    row = pieceToMovex + 2;
+                    col = pieceToMovey - 1;
+                    if (row > 8 || col < 0) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
+                        }
+                    }
+                    //down 1 then left 2
+                    row = pieceToMovex + 1;
+                    col = pieceToMovey - 2;
+                    if (row > 8 || col < 0) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
+                        }
+                    }
+                    //up 1 then left 2
+                    row = pieceToMovex - 1;
+                    col = pieceToMovey - 2;
+                    if (row < 0 || col < 0) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
+                        }
+                    }
+                    //up 2 then left 1
+                    row = pieceToMovex - 2;
+                    col = pieceToMovey - 1;
+                    if (row < 0 || col < 0) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
+                        }
+                    }
+                }
+                if (occupyType.equals("N") && (occupyColor.equals("B"))) {
+                    System.out.println("Black Knight found at " + board[scanX][scanY]);
+                    //2 right then down 1
+                    int row = pieceToMovex + 2;
+                    int col = pieceToMovey + 1;
+                    if (row > 7 || col > 7) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Bchk";
+                        }
+                    }
+                    //down 2 then 1 right
+                    row = pieceToMovex + 1;
+                    col = pieceToMovey + 2;
+                    if (row > 7 || col > 7) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Bchk";
+                        }
+                    }
+                    //up 1 then right 2
+                    row = pieceToMovex - 1;
+                    col = pieceToMovey + 2;
+                    if (row < 0 || col > 7) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Bchk";
+                        }
+                    }
+                    //up 2 then right 1
+                    row = pieceToMovex - 2;
+                    col = pieceToMovey + 1;
+                    if (row < 0 || col > 7) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Bchk";
+                        }
+                    }
+                    //down 2 then left 1
+                    row = pieceToMovex + 2;
+                    col = pieceToMovey - 1;
+                    if (row > 8 || col < 0) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Bchk";
+                        }
+                    }
+                    //down 1 then left 2
+                    row = pieceToMovex + 1;
+                    col = pieceToMovey - 2;
+                    if (row > 8 || col < 0) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Bchk";
+                        }
+                    }
+                    //up 1 then left 2
+                    row = pieceToMovex - 1;
+                    col = pieceToMovey - 2;
+                    if (row < 0 || col < 0) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Bchk";
+                        }
+                    }
+                    //up 2 then left 1
+                    row = pieceToMovex - 2;
+                    col = pieceToMovey - 1;
+                    if (row < 0 || col < 0) {
+                        break;
+                    } else {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Bchk";
                         }
                     }
                 }
