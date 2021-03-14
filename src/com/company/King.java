@@ -24,7 +24,7 @@ class King {
             String occupyColor = String.valueOf(board[row][col].charAt(1));
             if(board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KING";
+                
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -43,7 +43,7 @@ class King {
             String occupyColor = String.valueOf(board[row][col].charAt(1));
             if(board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KING";
+                
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -62,7 +62,7 @@ class King {
             String occupyColor = String.valueOf(board[row][col].charAt(1));
             if(board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KING";
+                
 
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
@@ -82,7 +82,7 @@ class King {
             String occupyColor = String.valueOf(board[row][col].charAt(1));
             if(board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KING";
+                
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -101,7 +101,7 @@ class King {
             String occupyColor = String.valueOf(board[row][col].charAt(1));
             if(board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KING";
+                
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -120,7 +120,7 @@ class King {
             String occupyColor = String.valueOf(board[row][col].charAt(1));
             if(board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KING";
+                
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -139,7 +139,7 @@ class King {
             String occupyColor = String.valueOf(board[row][col].charAt(1));
             if(board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KING";
+                
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);
@@ -158,7 +158,7 @@ class King {
             String occupyColor = String.valueOf(board[row][col].charAt(1));
             if(board[row][col].equals("emps")) {
                 legalmoves.add(row + "" + col);
-                board[row][col] = "KING";
+                
             } else if (pieceColor.equals("W")) {
                 if (occupyColor.equals("B")) {
                     legalmoves.add(row + "" + col);

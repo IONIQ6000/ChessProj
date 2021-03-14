@@ -1,11 +1,11 @@
 package com.company;
 
-public class kingBoardGenerator {
+class WhiteKingBoardGenerator {
     private final String[][] board;
     private final int pieceToMovex;
     private final int pieceToMovey;
 
-    public kingBoardGenerator(String[][] board, int pieceToMovex, int pieceToMovey) {
+    public WhiteKingBoardGenerator(String[][] board, int pieceToMovex, int pieceToMovey) {
         this.board = board;
         this.pieceToMovex = pieceToMovex;
         this.pieceToMovey = pieceToMovey;
@@ -20,81 +20,47 @@ public class kingBoardGenerator {
                 String occupyColor = String.valueOf(board[scanX][scanY].charAt(1));
                 if (occupyType.equals("P") && (occupyColor.equals("W"))) {
                     System.out.println("White Pawn found at " + board[scanX][scanY]);
-                    for (int row = scanX + 1; row <= (scanX + 1); row++) {
-                        if (row > 7) {
-                            break;
-                        } else {
+                    int row = scanX + 1;
+                    if (!(row > 7)) {
                             if (board[row][scanY].equals("emps")) {
                                 board[row][scanY] = "Wchk";
-                            } else {
-                                break;
                             }
                         }
-                    }
-                    for (int row = scanX + 1; row <= (scanX + 1); row++) {
-                        for (int col = scanY + 1; col <= (scanY + 1); col++) {
-                            if (row > 7 || col > 7) {
-                                break;
-                            } else {
-                                if (board[row][col].equals("emps")) {
-                                    board[row][col] = "Wchk";
-                                } else {
-                                    break;
-                                }
-                            }
+                    row = scanX + 1;
+                    int col = scanY + 1;
+                    if (!(row > 7 || col > 7)) {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
                         }
                     }
-                    for (int row = scanX + 1; row <= (scanX + 1); row++) {
-                        for (int col = scanY - 1; col <= (scanY - 1); col++) {
-                            if (row > 7 || col < 0) {
-                                break;
-                            } else {
-                                if (board[row][col].equals("emps")) {
-                                    board[row][col] = "Wchk";
-                                } else {
-                                    break;
-                                }
-                            }
+                    row = scanX + 1;
+                    col = scanY - 1;
+                    if (!(row > 7 || col < 0)) {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
                         }
                     }
                 }
                 if (occupyType.equals("P") && (occupyColor.equals("B"))) {
                     System.out.println("Black Pawn found at " + board[scanX][scanY]);
-                    for (int row = scanX - 1; row <= (scanX - 1); row++) {
-                        if (row < 0) {
-                            break;
-                        } else {
-                            if (board[row][scanY].equals("emps")) {
-                                board[row][scanY] = "Bchk";
-                            } else {
-                                break;
-                            }
+                    int row = scanX - 1;
+                    if (!(row < 0)) {
+                        if (board[row][scanY].equals("emps")) {
+                            board[row][scanY] = "Wchk";
                         }
                     }
-                    for (int row = scanX - 1; row <= (scanX - 1); row++) {
-                        for (int col = scanY - 1; col <= (scanY - 1); col++) {
-                            if (row < 0 || col < 0) {
-                                break;
-                            } else {
-                                if (board[row][col].equals("emps")) {
-                                    board[row][col] = "Bchk";
-                                } else {
-                                    break;
-                                }
-                            }
+                    row = scanX - 1;
+                    int col = scanY - 1;
+                    if (!(row < 0 || col < 0)) {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
                         }
                     }
-                    for (int row = scanX - 1; row <= (scanX - 1); row++) {
-                        for (int col = scanY + 1; col <= (scanY + 1); col++) {
-                            if (row < 0 || col > 7) {
-                                break;
-                            } else {
-                                if (board[row][col].equals("emps")) {
-                                    board[row][col] = "Bchk";
-                                } else {
-                                    break;
-                                }
-                            }
+                    row = scanX - 1;
+                    col = scanY + 1;
+                    if (!(row < 0 || col > 7)) {
+                        if (board[row][col].equals("emps")) {
+                            board[row][col] = "Wchk";
                         }
                     }
                 }
@@ -567,8 +533,8 @@ public class kingBoardGenerator {
                 if (occupyType.equals("N") && (occupyColor.equals("W"))) {
                     System.out.println("White Knight found at " + board[scanX][scanY]);
                     //2 right then down 1
-                    int row = pieceToMovex + 2;
-                    int col = pieceToMovey + 1;
+                    int row = scanX + 2;
+                    int col = scanY + 1;
                     if (row > 7 || col > 7) {
                         break;
                     } else {
@@ -577,8 +543,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //down 2 then 1 right
-                    row = pieceToMovex + 1;
-                    col = pieceToMovey + 2;
+                    row = scanX + 1;
+                    col = scanY + 2;
                     if (row > 7 || col > 7) {
                         break;
                     } else {
@@ -587,8 +553,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //up 1 then right 2
-                    row = pieceToMovex - 1;
-                    col = pieceToMovey + 2;
+                    row = scanX - 1;
+                    col = scanY + 2;
                     if (row < 0 || col > 7) {
                         break;
                     } else {
@@ -597,8 +563,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //up 2 then right 1
-                    row = pieceToMovex - 2;
-                    col = pieceToMovey + 1;
+                    row = scanX - 2;
+                    col = scanY + 1;
                     if (row < 0 || col > 7) {
                         break;
                     } else {
@@ -607,8 +573,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //down 2 then left 1
-                    row = pieceToMovex + 2;
-                    col = pieceToMovey - 1;
+                    row = scanX + 2;
+                    col = scanY - 1;
                     if (row > 8 || col < 0) {
                         break;
                     } else {
@@ -617,8 +583,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //down 1 then left 2
-                    row = pieceToMovex + 1;
-                    col = pieceToMovey - 2;
+                    row = scanX + 1;
+                    col = scanY - 2;
                     if (row > 8 || col < 0) {
                         break;
                     } else {
@@ -627,8 +593,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //up 1 then left 2
-                    row = pieceToMovex - 1;
-                    col = pieceToMovey - 2;
+                    row = scanX - 1;
+                    col = scanY - 2;
                     if (row < 0 || col < 0) {
                         break;
                     } else {
@@ -637,8 +603,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //up 2 then left 1
-                    row = pieceToMovex - 2;
-                    col = pieceToMovey - 1;
+                    row = scanX - 2;
+                    col = scanY - 1;
                     if (row < 0 || col < 0) {
                         break;
                     } else {
@@ -650,8 +616,8 @@ public class kingBoardGenerator {
                 if (occupyType.equals("N") && (occupyColor.equals("B"))) {
                     System.out.println("Black Knight found at " + board[scanX][scanY]);
                     //2 right then down 1
-                    int row = pieceToMovex + 2;
-                    int col = pieceToMovey + 1;
+                    int row = scanX + 2;
+                    int col = scanY + 1;
                     if (row > 7 || col > 7) {
                         break;
                     } else {
@@ -660,8 +626,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //down 2 then 1 right
-                    row = pieceToMovex + 1;
-                    col = pieceToMovey + 2;
+                    row = scanX + 1;
+                    col = scanY + 2;
                     if (row > 7 || col > 7) {
                         break;
                     } else {
@@ -670,8 +636,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //up 1 then right 2
-                    row = pieceToMovex - 1;
-                    col = pieceToMovey + 2;
+                    row = scanX - 1;
+                    col = scanY + 2;
                     if (row < 0 || col > 7) {
                         break;
                     } else {
@@ -680,8 +646,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //up 2 then right 1
-                    row = pieceToMovex - 2;
-                    col = pieceToMovey + 1;
+                    row = scanX - 2;
+                    col = scanY + 1;
                     if (row < 0 || col > 7) {
                         break;
                     } else {
@@ -690,8 +656,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //down 2 then left 1
-                    row = pieceToMovex + 2;
-                    col = pieceToMovey - 1;
+                    row = scanX + 2;
+                    col = scanY - 1;
                     if (row > 8 || col < 0) {
                         break;
                     } else {
@@ -700,8 +666,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //down 1 then left 2
-                    row = pieceToMovex + 1;
-                    col = pieceToMovey - 2;
+                    row = scanX + 1;
+                    col = scanY - 2;
                     if (row > 8 || col < 0) {
                         break;
                     } else {
@@ -710,8 +676,8 @@ public class kingBoardGenerator {
                         }
                     }
                     //up 1 then left 2
-                    row = pieceToMovex - 1;
-                    col = pieceToMovey - 2;
+                    row = scanX - 1;
+                    col = scanY - 2;
                     if (row < 0 || col < 0) {
                         break;
                     } else {
@@ -720,13 +686,146 @@ public class kingBoardGenerator {
                         }
                     }
                     //up 2 then left 1
-                    row = pieceToMovex - 2;
-                    col = pieceToMovey - 1;
+                    row = scanX - 2;
+                    col = scanY - 1;
                     if (row < 0 || col < 0) {
                         break;
                     } else {
                         if (board[row][col].equals("emps")) {
                             board[row][col] = "Bchk";
+                        }
+                    }
+                }
+                if (occupyType.equals("K") && (occupyColor.equals("W"))) {
+                    System.out.println("White King found at " + board[scanX][scanY]);
+                        //scan col to left of king
+                        int row = scanX - 1;
+                        int col = scanY - 1;
+                        if (!(row < 0 || col < 0)) {
+                            if(board[row][col].equals("emps")) {
+                                board[row][scanY] = "Wchk";
+                            }
+                        }
+                        row = scanX - 1;
+                        col = scanY;
+
+                        if (!(row < 0 )) {
+                            if(board[row][col].equals("emps")) {
+                                board[row][scanY] = "Wchk";
+                            }
+                        }
+                        row = scanX - 1;
+                        col = scanY + 1;
+
+                        if (!(row < 0 || col > 7)) {
+                            if(board[row][col].equals("emps")) {
+                                board[row][scanY] = "Wchk";
+                            }
+                        }
+                        row = scanX;
+                        col = scanY + 1;
+
+                        if (!( col > 7)) {
+                            if(board[row][col].equals("emps")) {
+                                board[row][scanY] = "Wchk";
+                            }
+                        }
+                        row = scanX + 1;
+                        col = scanY + 1;
+
+                        if (!( row > 7 ||col > 7)) {
+                            if(board[row][col].equals("emps")) {
+                                board[row][scanY] = "Wchk";
+                            }
+                        }
+                        row = scanX + 1;
+                        col = scanY;
+
+                        if (!( row > 7 )) {
+                            if(board[row][col].equals("emps")) {
+                                board[row][scanY] = "Wchk";
+                            }
+                        }
+                        row = scanX + 1;
+                        col = scanY - 1;
+
+                        if (!( row > 7 || col < 0)) {
+                            if(board[row][col].equals("emps")) {
+                                board[row][scanY] = "Wchk";
+                            }
+                        }
+                        row = scanX;
+                        col = scanY - 1;
+
+                        if (!( row > 7 || col < 0)) {
+                            if(board[row][col].equals("emps")) {
+                                board[row][scanY] = "Wchk";
+                            }
+                        }
+                }
+                if (occupyType.equals("K") && (occupyColor.equals("B"))) {
+                    System.out.println("Black Knight found at " + board[scanX][scanY]);
+                    int row = scanX - 1;
+                    int col = scanY - 1;
+                    if (!(row < 0 || col < 0)) {
+                        if(board[row][col].equals("emps")) {
+                            board[row][scanY] = "Bchk";
+                        }
+                    }
+                    row = scanX - 1;
+                    col = scanY;
+
+                    if (!(row < 0 )) {
+                        if(board[row][col].equals("emps")) {
+                            board[row][scanY] = "Bchk";
+                        }
+                    }
+                    row = scanX - 1;
+                    col = scanY + 1;
+
+                    if (!(row < 0 || col > 7)) {
+                        if(board[row][col].equals("emps")) {
+                            board[row][scanY] = "Bchk";
+                        }
+                    }
+                    row = scanX;
+                    col = scanY + 1;
+
+                    if (!( col > 7)) {
+                        if(board[row][col].equals("emps")) {
+                            board[row][scanY] = "Bchk";
+                        }
+                    }
+                    row = scanX + 1;
+                    col = scanY + 1;
+
+                    if (!( row > 7 ||col > 7)) {
+                        if(board[row][col].equals("emps")) {
+                            board[row][scanY] = "Bchk";
+                        }
+                    }
+                    row = scanX + 1;
+                    col = scanY;
+
+                    if (!( row > 7 )) {
+                        if(board[row][col].equals("emps")) {
+                            board[row][scanY] = "Bchk";
+                        }
+                    }
+                    row = scanX + 1;
+                    col = scanY - 1;
+
+                    if (!( row > 7 || col < 0)) {
+                        if(board[row][col].equals("emps")) {
+                            board[row][scanY] = "Bchk";
+                        }
+                    }
+                    row = scanX;
+                    col = scanY - 1;
+
+                    if (!( row > 7 || col < 0)) {
+                        if(board[row][col].equals("emps")) {
+                            board[row][scanY] = "Bchk";
                         }
                     }
                 }
