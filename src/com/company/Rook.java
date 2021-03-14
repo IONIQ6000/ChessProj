@@ -20,7 +20,6 @@ class Rook {
         //look to the right
         for (int col = pieceToMovey + 1; col <= pieceToMovey + 7; col++) {
             if (col > 7) {
-                System.out.println("Out of Bounds - going right");
                 break;
             }
             String occupyColor = String.valueOf(board[pieceToMovex][col].charAt(1));
@@ -41,7 +40,6 @@ class Rook {
         //look to the left
         for (int col = pieceToMovey - 1; col >= pieceToMovey - 7; col--) {
             if (col < 0) {
-                System.out.println("Out of Bounds - going left");
                 break;
             }
             String occupyColor = String.valueOf(board[pieceToMovex][col].charAt(1));
@@ -62,7 +60,6 @@ class Rook {
         //look to the top
         for (int row = pieceToMovex - 1; row >= pieceToMovex - 7; row--) {
             if (row < 0) {
-                System.out.println("Out of Bounds - over the top");
                 break;
             }
             String occupyColor = String.valueOf(board[row][pieceToMovey].charAt(1));
@@ -83,7 +80,6 @@ class Rook {
         //look to the bottom
         for (int row = pieceToMovex + 1; row <= pieceToMovex + 7; row++) {
             if (row > 7) {
-                System.out.println("Out of Bounds - out the bottom");
                 break;
             }
             String occupyColor = String.valueOf(board[row][pieceToMovey].charAt(1));

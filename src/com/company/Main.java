@@ -24,15 +24,18 @@ public class Main {
         String whiteInput = in.nextLine();
         whiteInput = whiteInput.replaceAll("\\s", "");
         List<String> wlist = Arrays.asList(whiteInput.split(","));
-        System.out.println("You entered for White " + wlist);
-        for (String str : wlist) {
-            int inumx = (str.charAt(1) - 'a');
-            int inumy = Integer.parseInt(str.substring(2)) - 1;
-            str = Character.toUpperCase(str.charAt(0)) + str.substring(1);
-            StringBuffer strbuf = new StringBuffer(str);
-            strbuf.insert(1, 'W');
-            str = String.valueOf(strbuf);
-            board[inumx][inumy] = str;
+
+        if(!whiteInput.isEmpty()){
+            System.out.println("You entered for White : " + wlist);
+            for (String str : wlist) {
+                int inumx = Character.toLowerCase(str.charAt(1)) - 'a';
+                int inumy = Integer.parseInt(str.substring(2)) - 1;
+                str = Character.toUpperCase(str.charAt(0)) + str.substring(1);
+                StringBuffer strbuf = new StringBuffer(str);
+                strbuf.insert(1, 'W');
+                str = String.valueOf(strbuf);
+                board[inumx][inumy] = str;
+            }
         }
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -40,21 +43,26 @@ public class Main {
             }
             System.out.println();
         }
+
         System.out.println("Enter Black: ");
         String blackInput = in.nextLine();
         blackInput = blackInput.replaceAll("\\s", "");
         List<String> blist = Arrays.asList(blackInput.split(","));
-        System.out.println("You entered for Black " + blist);
-
-
-        for (String str : blist) {
-            int inumx = (str.charAt(1) - 'a');
-            int inumy = Integer.parseInt(str.substring(2)) - 1;
-            str = Character.toUpperCase(str.charAt(0)) + str.substring(1);
-            StringBuffer strbuf = new StringBuffer(str);
-            strbuf.insert(1, 'B');
-            str = String.valueOf(strbuf);
-            board[inumx][inumy] = str;
+        if(!blackInput.isEmpty()) {
+            System.out.println("You entered for Black " + blist);
+            for (String str : blist) {
+                int inumx = Character.toLowerCase(str.charAt(1)) - 'a';
+                int inumy = Integer.parseInt(str.substring(2)) - 1;
+                str = Character.toUpperCase(str.charAt(0)) + str.substring(1);
+                StringBuffer strbuf = new StringBuffer(str);
+                strbuf.insert(1, 'B');
+                str = String.valueOf(strbuf);
+                board[inumx][inumy] = str;
+            }
+        }
+        if(whiteInput.isEmpty() && blackInput.isEmpty()){
+            System.out.println("You must enter at least one input!");
+            System.exit(0);
         }
 
         for (int i = 0; i < 8; i++) {
@@ -67,7 +75,7 @@ public class Main {
         System.out.println("Piece to move: ");
         String pieceToMove = in.nextLine();
 
-        int pieceToMovex = (pieceToMove.charAt(1) - 'a');
+        int pieceToMovex = Character.toLowerCase((pieceToMove.charAt(1))) - 'a';
         int pieceToMovey = Integer.parseInt(pieceToMove.substring(2)) - 1;
 
         pieceToMove = board[pieceToMovex][pieceToMovey];
@@ -76,7 +84,7 @@ public class Main {
             System.out.println("Empty!");
             System.out.println("Piece to move: ");
             pieceToMove = in.nextLine();
-            pieceToMovex = (pieceToMove.charAt(1) - 'a');
+            pieceToMovex = Character.toLowerCase((pieceToMove.charAt(1))) - 'a';
             pieceToMovey = Integer.parseInt(pieceToMove.substring(2)) - 1;
             pieceToMove = board[pieceToMovex][pieceToMovey];
 
