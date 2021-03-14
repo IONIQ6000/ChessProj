@@ -16,9 +16,7 @@ public class Main {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 board[i][j] = "emps";
-                System.out.print(board[i][j] + " ");
             }
-            System.out.println();
         }
 
         Scanner in = new Scanner(System.in);
@@ -105,8 +103,13 @@ public class Main {
             new Knight(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
         }
         if (pieceType.equals("K")) {
-            new WhiteKingBoardGenerator(board, pieceToMovex, pieceToMovey).invoke();
-            //new King(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
+            String pieceColor = String.valueOf(board[pieceToMovex][pieceToMovey].charAt(1));
+            if (pieceColor.equals("W")){
+                new WhiteKingBoardGenerator(board).invoke();
+            } else if (pieceColor.equals("B")){
+                new BlackKingBoardGenerator(board).invoke();
+            }
+            new King(board, pieceToMovex, pieceToMovey, legalmoves).invoke();
         }
 
         List<String> legalprint = new ArrayList<>();

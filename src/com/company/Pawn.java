@@ -1,6 +1,5 @@
 package com.company;
 
-
 import java.util.List;
 
 class Pawn {
@@ -19,80 +18,91 @@ class Pawn {
     public void invoke() {
         String pieceColor = String.valueOf(board[pieceToMovex][pieceToMovey].charAt(1));
         if (pieceColor.equals("W")) {
-            for (int row = pieceToMovex + 1; row <= (pieceToMovex + 1); row++) {
-                if (row > 7) {
-                    break;
-                } else {
-                    if (board[row][pieceToMovey].equals("emps")) {
-                        legalmoves.add(row + "" + pieceToMovey);
-                    }
-                    //String ifPawn = String.valueOf(board[row][pieceToMovey].charAt(0));
-                    String occupyColor = String.valueOf(board[row][pieceToMovey].charAt(1));
-                    if (occupyColor.equals("B")) {
-                        legalmoves.add(row + "" + pieceToMovey);
+            int col = pieceToMovey;
+            if (col > 5) {
+                for (col = pieceToMovey - 1; col >= pieceToMovey - 2; col--) {
+                    if (board[pieceToMovex][col].equals("emps")) {
+                        legalmoves.add(pieceToMovex + "" + col);
+                    } else {
+                        String occupyColor = String.valueOf(board[pieceToMovex][col].charAt(1));
+                        if (occupyColor.equals("B")) {
+                            legalmoves.add(pieceToMovex + "" + col);
+                            break;
+                        }
                     }
                 }
-            }
-            for (int row = pieceToMovex + 1; row <= (pieceToMovex + 1); row++) {
-                for (int col = pieceToMovey + 1; col <= (pieceToMovey + 1); col++) {
-                    if (row > 7 || col > 7) {
-                        break;
+            } else {
+                col = pieceToMovey - 1;
+                if (!(col < 0)) {
+                    if (board[pieceToMovex][col].equals("emps")) {
+                        legalmoves.add(pieceToMovex + "" + col);
                     } else {
-                    String occupyColor = String.valueOf(board[row][col].charAt(1));
-                    if (occupyColor.equals("B")) {
-                        legalmoves.add(row + "" + col);
+                        String occupyColor = String.valueOf(board[pieceToMovex][col].charAt(1));
+                        if (occupyColor.equals("B")) {
+                            legalmoves.add(pieceToMovex + "" + col);
                         }
                     }
                 }
             }
-            for (int row = pieceToMovex + 1; row <= (pieceToMovex + 1); row++) {
-                for (int col = pieceToMovey - 1; col <= (pieceToMovey - 1); col++) {
-                    if (row > 7 || col < 0){
-                        break;
-                    } else {
-                    String occupyColor = String.valueOf(board[row][col].charAt(1));
-                    if (occupyColor.equals("B")) {
-                        legalmoves.add(row + "" + col);
-                        }
-                    }
+
+            int row = pieceToMovex - 1;
+            col = pieceToMovey - 1;
+            if (!(row < 0 || col < 0)) {
+                String occupyColor = String.valueOf(board[row][col].charAt(1));
+                if (occupyColor.equals("B")) {
+                    legalmoves.add(row + "" + col);
+                }
+            }
+
+            row = pieceToMovex + 1;
+            col = pieceToMovey - 1;
+            if (!(row > 7 || col < 0)) {
+                String occupyColor = String.valueOf(board[row][col].charAt(1));
+                if (occupyColor.equals("B")) {
+                    legalmoves.add(row + "" + col);
                 }
             }
         } else if (pieceColor.equals("B")) {
-            for (int row = pieceToMovex - 1; row <= (pieceToMovex - 1); row++) {
-                if (row < 0) {
-                    break;
-                } else {
-                if (board[row][pieceToMovey].equals("emps")) {
-                    legalmoves.add(row + "" + pieceToMovey);
-                }
-                //String ifPawn = String.valueOf(board[row][pieceToMovey].charAt(0));
-                String occupyColor = String.valueOf(board[row][pieceToMovey].charAt(1));
-                if (occupyColor.equals("W")) {
-                    legalmoves.add(row + "" + pieceToMovey);
-                    }
-                }
-            }
-            for (int row = pieceToMovex - 1; row <= (pieceToMovex - 1); row++) {
-                for (int col = pieceToMovey - 1; col <= (pieceToMovey - 1); col++) {
-                    if (row < 0 || col < 0) {
-                        break;
+            int col = pieceToMovey;
+            if (col < 2) {
+                for (col = pieceToMovey + 1; col <= pieceToMovey + 2; col++) {
+                    if (board[pieceToMovex][col].equals("emps")) {
+                        legalmoves.add(pieceToMovex + "" + col);
                     } else {
-                    String occupyColor = String.valueOf(board[row][col].charAt(1));
-                    if (occupyColor.equals("W")) {
-                        legalmoves.add(row + "" + col);
+                        String occupyColor = String.valueOf(board[pieceToMovex][col].charAt(1));
+                        if (occupyColor.equals("B")) {
+                            legalmoves.add(pieceToMovex + "" + col);
+                            break;
                         }
                     }
                 }
-            }
-            for (int row = pieceToMovex - 1; row <= (pieceToMovex - 1); row++) {
-                for (int col = pieceToMovey + 1; col <= (pieceToMovey + 1); col++) {
-                    if (row < 0 || col > 7) {
-                        break;
+            } else {
+                col = pieceToMovey + 1;
+                if (!(col > 7)) {
+                    if (board[pieceToMovex][col].equals("emps")) {
+                        legalmoves.add(pieceToMovex + "" + col);
                     } else {
+                        String occupyColor = String.valueOf(board[pieceToMovex][col].charAt(1));
+                        if (occupyColor.equals("W")) {
+                            legalmoves.add(pieceToMovex + "" + col);
+                        }
+                    }
+                }
+                int row = pieceToMovex + 1;
+                col = pieceToMovey + 1;
+                if (!(row > 8 || col > 8)) {
                     String occupyColor = String.valueOf(board[row][col].charAt(1));
                     if (occupyColor.equals("W")) {
                         legalmoves.add(row + "" + col);
-                        }
+                    }
+                }
+
+                row = pieceToMovex - 1;
+                col = pieceToMovey + 1;
+                if (!(row < 0 || col > 8)) {
+                    String occupyColor = String.valueOf(board[row][col].charAt(1));
+                    if (occupyColor.equals("W")) {
+                        legalmoves.add(row + "" + col);
                     }
                 }
             }
