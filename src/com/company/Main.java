@@ -37,12 +37,6 @@ public class Main {
                 board[inumx][inumy] = str;
             }
         }
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println();
-        }
 
         System.out.println("Enter Black: ");
         String blackInput = in.nextLine();
@@ -65,12 +59,6 @@ public class Main {
             System.exit(0);
         }
 
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println();
-        }
 
         System.out.println("Piece to move: ");
         String pieceToMove = in.nextLine();
@@ -89,7 +77,6 @@ public class Main {
             pieceToMove = board[pieceToMovex][pieceToMovey];
 
         }
-        System.out.println(pieceToMove);
 
         String pieceType = String.valueOf(pieceToMove.charAt(0));
 
@@ -127,12 +114,6 @@ public class Main {
             legalprint.add(letterax + "" + numax);
         }
         System.out.println("Legal moves:  " + legalprint);
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println();
-        }
     }
 }
 
