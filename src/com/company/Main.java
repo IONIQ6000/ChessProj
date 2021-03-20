@@ -43,7 +43,7 @@ public class Main {
         blackInput = blackInput.replaceAll("\\s", "");
         List<String> blist = Arrays.asList(blackInput.split(","));
         if(!blackInput.isEmpty()) {
-            System.out.println("You entered for Black " + blist);
+            System.out.println("You entered for Black : " + blist);
             for (String str : blist) {
                 int inumx = Character.toLowerCase(str.charAt(1)) - 'a';
                 int inumy = Integer.parseInt(str.substring(2)) - 1;
@@ -61,7 +61,9 @@ public class Main {
 
 
         System.out.println("Piece to move: ");
+
         String pieceToMove = in.nextLine();
+        pieceToMove = pieceToMove.replaceAll("\\s", "");
 
         int pieceToMovex = Character.toLowerCase((pieceToMove.charAt(1))) - 'a';
         int pieceToMovey = Integer.parseInt(pieceToMove.substring(2)) - 1;
